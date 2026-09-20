@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#F6F2EA" name="theme-color"/>
+<title>Danwei × Mum · Central Europe 2026 · V4</title>
+<style>
+:root{
+  --bg:#F6F2EA;--paper:#FFFCF7;--ink:#191916;--muted:#726D66;--forest:#33473A;
+  --sage:#E7EEE6;--wine:#7E3F43;--gold:#B78D48;--wood:#8B6B52;--blue:#596C7B;
+  --line:#E7DED2;--soft:#F1EBE2;--shadow:0 12px 35px rgba(43,36,28,.08);--r:20px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI","Noto Sans SC",Arial,sans-serif;line-height:1.55;padding-bottom:84px}
+a{color:inherit}button,input{font:inherit}.wrap{width:min(1120px,calc(100% - 28px));margin:auto}
+.hero{position:relative;overflow:hidden;padding:28px 0 26px;border-bottom:1px solid var(--line);background:radial-gradient(circle at 80% 0%,#E9E1D4 0,transparent 38%),linear-gradient(145deg,#F8F4EC,#F2ECE3)}
+.hero:after{content:"";position:absolute;width:270px;height:270px;border-radius:50%;border:1px solid rgba(51,71,58,.16);right:-90px;top:-100px;box-shadow:0 0 0 45px rgba(51,71,58,.03),0 0 0 90px rgba(51,71,58,.02)}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.3fr .7fr;gap:24px;align-items:end}
+.kicker{font-size:11px;letter-spacing:.2em;font-weight:800;color:var(--forest)}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(40px,7vw,78px);line-height:.92;letter-spacing:-.045em;margin:12px 0 14px;font-weight:600}
+h1 i{font-weight:400;color:var(--wine)}
+.hero-copy{max-width:700px;color:var(--muted);font-size:14px}.route{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}.chip{border:1px solid var(--line);background:rgba(255,255,255,.62);padding:7px 10px;border-radius:999px;font-size:12px;font-weight:700}.chip strong{color:var(--forest)}
+.hero-card{background:rgba(255,252,247,.74);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.75);box-shadow:var(--shadow);border-radius:24px;padding:18px}.hero-card .label{font-size:10px;letter-spacing:.16em;color:var(--muted);font-weight:800}.hero-card .big{font-size:31px;font-family:Georgia,serif;margin-top:2px}.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.mini{background:#fffaf5;border:1px solid var(--line);border-radius:14px;padding:10px}.mini small{display:block;color:var(--muted);font-size:10px}.mini b{font-size:14px}
+.toolbar{position:sticky;top:0;z-index:30;background:rgba(246,242,234,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}.tabs{display:flex;gap:7px;overflow:auto;padding:9px 0;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}.tabs a{text-decoration:none;white-space:nowrap;padding:8px 12px;border-radius:999px;border:1px solid transparent;color:var(--muted);font-size:12px;font-weight:800}.tabs a:hover,.tabs a:focus{background:var(--sage);color:var(--forest)}
+main{padding:25px 0 20px}.section{scroll-margin-top:64px;margin-bottom:34px}.section-title{display:flex;justify-content:space-between;gap:18px;align-items:end;margin-bottom:14px}.section-title h2{font-family:Georgia,serif;font-size:30px;margin:0}.section-title p{margin:3px 0 0;color:var(--muted);font-size:13px}.eyebadge{font-size:10px;letter-spacing:.1em;padding:6px 9px;background:var(--sage);color:var(--forest);border-radius:999px;font-weight:900}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.metric,.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}.metric{padding:14px}.metric small{color:var(--muted);font-size:10px;letter-spacing:.08em}.metric b{display:block;font-size:19px;margin-top:2px}
+.alerts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}.alert{padding:14px;border-radius:18px;border:1px solid var(--line);background:#fff}.alert strong{display:block;font-size:13px}.alert p{margin:4px 0 0;font-size:12px;color:var(--muted)}.alert.red{background:#FAECEA;border-color:#EFCFCC}.alert.gold{background:#FFF4DF;border-color:#F0DFC0}.alert.green{background:#EDF3EB;border-color:#D7E5D4}
+.flight-wrap{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}.flight{padding:16px}.flight .who{display:flex;align-items:center;justify-content:space-between;gap:8px}.who b{font-size:16px}.airline{font-size:11px;color:var(--muted)}.leg{display:grid;grid-template-columns:58px 1fr 58px;gap:8px;align-items:center;padding:12px 0;border-top:1px dashed var(--line)}.leg:first-of-type{margin-top:8px}.airport{text-align:center}.airport b{display:block;font-size:17px}.airport small{font-size:10px;color:var(--muted)}.arrowline{height:1px;background:var(--line);position:relative}.arrowline:after{content:"✈";position:absolute;left:50%;top:50%;transform:translate(-50%,-55%);background:var(--paper);padding:0 5px;font-size:12px;color:var(--forest)}.leg-note{grid-column:1/-1;text-align:center;font-size:10.5px;color:var(--muted);margin-top:-5px}
+.route-map{padding:16px;margin-top:12px}.route-line{display:flex;align-items:center;gap:8px;overflow:auto;padding:2px 0 4px}.citystop{min-width:142px;background:#fffaf5;border:1px solid var(--line);border-radius:16px;padding:10px}.citystop b{display:block}.citystop small{color:var(--muted)}.connector{color:var(--gold);font-weight:900}
+.day-list{display:grid;gap:10px}.day{overflow:hidden}.day summary{list-style:none;cursor:pointer;padding:14px 15px;display:grid;grid-template-columns:54px 1fr auto;gap:12px;align-items:center}.day summary::-webkit-details-marker{display:none}.date{width:54px;height:54px;border-radius:16px;background:var(--sage);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--forest);font-weight:900}.date b{font-size:20px;line-height:1}.date small{font-size:9px;letter-spacing:.08em}.day h3{margin:0;font-size:16px}.meta{font-size:11.5px;color:var(--muted);margin-top:2px}.tag{display:inline-block;padding:3px 7px;border-radius:7px;background:var(--sage);color:var(--forest);font-size:9px;font-weight:900;margin:5px 4px 0 0}.tag.warn{background:#FFF0D8;color:#8A5B12}.tag.red{background:#F9E5E2;color:#9B3F37}.tag.blue{background:#E8EEF2;color:#506472}.day-body{border-top:1px solid var(--line);padding:4px 15px 14px}.timeline{display:grid;grid-template-columns:64px 1fr;gap:10px;padding:11px 0;border-bottom:1px dashed var(--line)}.timeline:last-child{border-bottom:0}.time{font-size:11px;color:var(--wood);font-weight:900}.timeline b{display:block;font-size:13.5px}.timeline p{margin:2px 0 0;color:var(--muted);font-size:12px}.maps{display:inline-flex;margin-top:5px;text-decoration:none;color:var(--forest);font-size:11px;font-weight:800;border:1px solid var(--line);padding:4px 7px;border-radius:8px;background:#fff}.day-note{margin-top:9px;padding:10px 11px;border-radius:12px;background:var(--soft);font-size:11.5px;color:var(--muted)}
+.booking-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.group{padding:15px}.group h3{margin:0 0 8px;font-size:15px}.check{display:flex;gap:10px;padding:10px 0;border-top:1px solid var(--line)}.check:first-of-type{border-top:0}.check input{width:20px;height:20px;accent-color:var(--forest);margin-top:2px}.check .ct{flex:1}.check b{font-size:13px;display:block}.check p{margin:2px 0 0;color:var(--muted);font-size:11.5px}.prio{font-size:9px;padding:3px 6px;border-radius:6px;font-weight:900;white-space:nowrap;align-self:flex-start}.prio.now{background:#F9E5E2;color:#983C34}.prio.soon{background:#FFF0D8;color:#8A5B12}.prio.later{background:#E8EEF2;color:#536573}.saved .ct{text-decoration:line-through;opacity:.5}
+.market-table{display:grid;gap:8px}.market{padding:13px 14px;display:grid;grid-template-columns:90px 1fr auto;gap:12px;align-items:start}.market .cityname{font-weight:900;color:var(--forest)}.market b{font-size:13px}.market p{margin:2px 0 0;color:var(--muted);font-size:11.5px}.status{font-size:9px;font-weight:900;padding:4px 7px;border-radius:7px}.status.yes{background:#E5F1E4;color:#3B6A40}.status.no{background:#F8E7E4;color:#984338}.status.maybe{background:#FFF0D8;color:#8A5B12}
+.filterbar{display:flex;gap:6px;overflow:auto;margin-bottom:12px}.filterbar button{border:1px solid var(--line);background:#fffaf5;color:var(--muted);padding:7px 10px;border-radius:999px;font-size:11px;font-weight:800;white-space:nowrap}.filterbar button.active{background:var(--forest);color:white;border-color:var(--forest)}.food-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.food{padding:14px}.food .fcity{font-size:9px;color:var(--wood);font-weight:900;letter-spacing:.1em}.food h3{font-size:15px;margin:4px 0 3px}.stars{color:var(--gold);font-size:12px}.food p{margin:7px 0 0;color:var(--muted);font-size:11.7px}.food .badges{margin-top:8px}.food.asian{border-color:#D5DEE5}.food.cafe{border-color:#E8DCCB}.food.local{border-color:#DDE4DA}.food[hidden]{display:none}.must{background:#FBE8E3;color:#9A4036}.asianb{background:#E7EEF3;color:#4E6474}.cafeb{background:#F0E5D8;color:#795B43}
+.trans-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:10px}.trans-card{padding:15px}.trans-card h3{margin:0 0 9px}.trans-row{padding:9px 0;border-top:1px solid var(--line)}.trans-row:first-of-type{border-top:0}.trans-row b{font-size:13px}.trans-row p{margin:2px 0 0;color:var(--muted);font-size:11.5px}.app-pill{display:inline-block;padding:4px 8px;border-radius:999px;background:var(--sage);color:var(--forest);font-size:10px;font-weight:900;margin-top:5px}
+.weather-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.weather{padding:15px}.weather table{width:100%;border-collapse:collapse;font-size:11.5px}.weather th,.weather td{text-align:left;padding:8px 5px;border-bottom:1px solid var(--line)}.weather th{color:var(--muted);font-size:10px}.outfit{padding:15px}.outfit h3{margin:0 0 8px}.outfit ul{margin:0;padding-left:19px;color:var(--muted);font-size:12px}.outfit li{margin:6px 0}
+.pack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.pack{padding:14px}.pack h3{margin:0 0 6px;font-size:14px}.pack .check{padding:7px 0}.pack .check b{font-weight:600}
+.stay-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}.stay{padding:13px}.stay .flag{font-size:20px}.stay h3{font-size:13.5px;margin:5px 0 2px}.stay p{font-size:11.2px;color:var(--muted);margin:5px 0}.stay .night{font-weight:900;color:var(--wine);font-size:11px}
+.notes-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.note-card{padding:15px}.note-card h3{margin:0 0 7px;font-size:14px}.note-card p,.note-card li{color:var(--muted);font-size:11.7px}.note-card ul{padding-left:18px;margin:6px 0 0}.source{font-size:9.5px;color:var(--muted);margin-top:8px}.source a{color:var(--forest)}
+.bottomnav{display:none}
+@media(max-width:850px){.hero-grid,.flight-wrap,.booking-grid,.trans-grid,.weather-grid,.notes-grid{grid-template-columns:1fr}.grid4{grid-template-columns:1fr 1fr}.alerts{grid-template-columns:1fr}.food-grid{grid-template-columns:1fr 1fr}.pack-grid{grid-template-columns:1fr 1fr}.stay-grid{grid-template-columns:1fr 1fr}.hero-card{display:none}}
+@media(max-width:620px){body{padding-bottom:86px}.wrap{width:min(100% - 22px,1120px)}.hero{padding-top:22px}h1{font-size:45px}.toolbar{display:none}.grid4{grid-template-columns:1fr 1fr}.food-grid,.pack-grid{grid-template-columns:1fr}.stay-grid{grid-template-columns:1fr 1fr}.day summary{grid-template-columns:48px 1fr}.day summary>.eyebadge{display:none}.date{width:48px;height:48px}.market{grid-template-columns:72px 1fr}.market .status{grid-column:2}.bottomnav{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:7px;right:7px;bottom:7px;z-index:50;border:1px solid rgba(255,255,255,.85);border-radius:21px;background:rgba(255,252,247,.92);backdrop-filter:blur(18px);box-shadow:0 16px 40px rgba(30,25,20,.16);padding:6px calc(4px + env(safe-area-inset-right)) calc(6px + env(safe-area-inset-bottom)) calc(4px + env(safe-area-inset-left))}.bottomnav a{text-decoration:none;text-align:center;color:var(--muted);font-size:9.5px;padding:5px 2px;border-radius:13px;font-weight:700}.bottomnav span{display:block;font-size:18px}.bottomnav a:active{background:var(--sage);color:var(--forest)}}
+
+/* V4 UX refinements */
+.city-group{border:1px solid var(--line);background:rgba(255,252,247,.72);border-radius:22px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:10px}
+.city-group>summary{list-style:none;cursor:pointer;padding:14px 15px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-weight:900}
+.city-group>summary::-webkit-details-marker{display:none}.city-group>summary .city-meta{font-size:11px;color:var(--muted);font-weight:700;margin-top:2px}.city-group>summary .arrow{color:var(--gold)}
+.city-group[open]>summary{border-bottom:1px solid var(--line);background:var(--soft)}.city-group-inner{padding:10px}.city-group .day-list{gap:8px}.city-group .day{box-shadow:none}
+.booking-grid .full{grid-column:1/-1}.ticket-card{padding:15px}.ticket-card h3{margin:0 0 4px}.ticket-help{color:var(--muted);font-size:11.5px;margin:0 0 8px}.ticket-spec{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:7px}.ticket-spec span{display:block;background:var(--soft);border-radius:10px;padding:7px 8px;font-size:10.5px;color:var(--muted)}.ticket-spec b{display:block;color:var(--ink);font-size:11px;margin-bottom:1px}.ticket-note{font-size:10.5px;color:var(--wine);margin-top:6px;font-weight:700}
+.check.saved{background:linear-gradient(90deg,rgba(51,71,58,.05),transparent);border-radius:10px;padding-left:5px;padding-right:5px}.check.saved .ct,.check.saved .prio{text-decoration:line-through;opacity:.42}.check.saved input{opacity:.6}
+.food-city{margin-bottom:10px}.food-city>summary{list-style:none;cursor:pointer;padding:14px 15px;display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);font-weight:900}.food-city>summary::-webkit-details-marker{display:none}.food-city[open]>summary{border-radius:18px 18px 0 0;background:var(--soft)}.food-city-body{border:1px solid var(--line);border-top:0;border-radius:0 0 18px 18px;padding:10px;background:rgba(255,252,247,.62)}
+.food-done{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:900;color:var(--forest);margin:0 0 10px;padding:8px 10px;border:1px dashed #BFCBBB;border-radius:10px;background:#F5F8F3;cursor:pointer;user-select:none}
+.food-done input{width:18px;height:18px;accent-color:var(--forest);flex:0 0 auto}
+.food-done .done-label::before{content:"☐ "}
+.food.saved .food-done{background:#E8EEE5;color:#6B7768;border-style:solid}
+.food.saved .food-done .done-label::before{content:"✓ "}
+.food.saved .food-done .done-label{text-decoration:line-through}
+.food.saved .food-content{text-decoration:line-through;opacity:.38}
+.food.saved{background:#F4F2EC}.food-count{font-size:10px;color:var(--muted);font-weight:800}
+.food-meta{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:7px 0 3px}
+.google-rating{display:inline-flex;align-items:center;gap:4px;background:#FFF4D8;border:1px solid #EAD9A9;color:#70571A;padding:5px 8px;border-radius:999px;font-size:10px;font-weight:900;text-decoration:none}
+.map-btn{display:inline-flex;align-items:center;gap:4px;background:#EEF3EC;border:1px solid #D6E0D3;color:var(--forest);padding:5px 8px;border-radius:999px;font-size:10px;font-weight:900;text-decoration:none}
+.map-btn:active,.google-rating:active{transform:scale(.98)}
+.rating-note{font-size:10px;color:var(--muted);margin:0 0 12px;line-height:1.5}
+.plan-audit{margin-top:12px;padding:15px}.plan-audit h3{margin:0 0 8px;font-size:15px}.audit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.audit-item{background:var(--soft);border-radius:12px;padding:9px;font-size:11px;color:var(--muted)}.audit-item b{display:block;color:var(--ink);margin-bottom:2px}
+@media(max-width:850px){.ticket-spec,.audit-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.ticket-spec{grid-template-columns:1fr 1fr}.audit-grid{grid-template-columns:1fr}.city-group-inner{padding:8px}.food-city-body{padding:8px}}
+</style>
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style id="editorial-v7">
+:root{
+  --sky:#C4D4DE!important;--sage:#C8CFB3!important;--olive:#D9DCC3!important;
+  --blue:#BDC9D8!important;--cream:#F5F1E7!important;--pink:#E6C9C5!important;
+  --forest:#15382D!important;--ink:#1D2924!important;--muted:#68736D!important;
+  --accent:#C86643!important;--line:rgba(21,56,45,.10)!important;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Manrope",system-ui,sans-serif!important;
+  color:var(--ink)!important;background:
+  radial-gradient(circle at 5% 2%,rgba(196,212,222,.55),transparent 28rem),
+  linear-gradient(180deg,#F8F5ED 0%,#F5F1E7 100%)!important;
+}
+h1,h2,.hero-title,.city-title,.food-city summary strong{font-family:"Fraunces",Georgia,serif!important}
+h1{font-weight:600!important;letter-spacing:-.035em!important}
+h2{font-weight:600!important;letter-spacing:-.025em!important}
+.hero{
+  background:linear-gradient(135deg,#C4D4DE 0%,#D9DCC3 52%,#E6C9C5 100%)!important;
+  color:var(--forest)!important;border-radius:0 0 36px 36px!important;overflow:hidden!important;
+}
+.hero:before{opacity:.18!important}
+.hero .kicker,.hero p,.hero .meta{color:rgba(21,56,45,.72)!important}
+.hero h1 i{color:var(--accent)!important}
+.container{max-width:1180px!important}
+.section{margin-top:34px!important}
+.section-title{align-items:end!important;margin-bottom:16px!important}
+.section-title p{color:var(--muted)!important}
+.eyebadge,.pill,.tag,.chip{
+  border:0!important;background:rgba(255,255,255,.68)!important;color:var(--forest)!important;
+  box-shadow:0 5px 16px rgba(35,45,40,.035)!important;
+}
+.card,.city-block,.food-city,.booking-card,.transport-card,.market-card,.weather-card,.stay-card,.note-card{
+  border:0!important;border-radius:24px!important;background:rgba(255,255,255,.82)!important;
+  box-shadow:0 8px 26px rgba(35,45,40,.05)!important;overflow:hidden!important;
+}
+.card:hover,.food-card:hover{transform:translateY(-2px);transition:.3s ease}
+.city-block>summary,.food-city>summary{
+  background:linear-gradient(90deg,rgba(196,212,222,.34),rgba(217,220,195,.25))!important;
+  border-radius:20px!important;padding:16px 18px!important;
+}
+.city-block[open]>summary,.food-city[open]>summary{margin-bottom:10px!important}
+.day-head{border-bottom-color:rgba(21,56,45,.08)!important}
+.day-num{background:var(--forest)!important;color:#fff!important}
+.time{color:var(--accent)!important;font-weight:800!important}
+.google-rating{background:#F7EBCF!important;border:0!important;color:#745A22!important}
+.map-btn{background:#E8EFE7!important;border:0!important;color:var(--forest)!important}
+.food-done{background:#EEF2E9!important;border-color:#C8CFB3!important}
+.food.saved{background:#F0EEE7!important}
+.booking-card.saved,.check.saved{background:#ECEDE4!important}
+a{color:var(--forest)}
+.bottom-nav{
+  background:rgba(255,255,255,.93)!important;border:0!important;
+  box-shadow:0 10px 32px rgba(35,45,40,.12)!important;border-radius:24px!important;
+}
+.bottom-nav a.active,.bottom-nav a:hover{color:var(--accent)!important}
+button{transition:all .3s ease}
+.illustrated-route{
+  max-width:1180px;margin:-54px auto 24px;padding:0 18px;position:relative;z-index:5;
+}
+.route-card{
+  border-radius:28px;background:#F5F1E7;box-shadow:0 10px 30px rgba(35,45,40,.08);
+  overflow:hidden;padding:16px 18px 12px;
+}
+.route-card svg{display:block;width:100%;height:auto;max-height:245px}
+.route-caption{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:2px 4px 6px}
+.route-caption b{font-family:"Fraunces",serif;font-size:18px;color:var(--forest)}
+.route-caption span{font-size:11px;color:var(--muted)}
+.story-intro{
+  max-width:1180px;margin:0 auto;padding:0 18px 4px;display:grid;grid-template-columns:1.2fr .8fr;gap:14px
+}
+.story-note{border-radius:24px;padding:20px;background:#E6C9C5;color:var(--forest)}
+.story-note.alt{background:#C8CFB3}
+.story-note h3{font-family:"Fraunces",serif;font-size:21px;margin:0 0 6px}
+.story-note p{font-size:12px;line-height:1.65;margin:0;color:rgba(21,56,45,.72)}
+@media(max-width:760px){
+  .hero{border-radius:0 0 30px 30px!important;padding-bottom:76px!important}
+  .illustrated-route{margin-top:-60px;padding:0 12px}
+  .route-card{border-radius:24px;padding:10px}
+  .route-caption{padding:4px 8px 8px}
+  .story-intro{grid-template-columns:1fr;padding:0 12px}
+  .section{margin-top:28px!important}
+  .card,.city-block,.food-city,.booking-card,.transport-card,.market-card,.weather-card,.stay-card,.note-card{border-radius:20px!important}
+}
+</style>
+
+</head>
+<body>
+<header class="hero" id="top">
+<div class="wrap hero-grid">
+<div>
+<div class="kicker">DANWEI × MUM · 10–24 NOVEMBER 2026</div>
+<h1>Central Europe<br/><i>slow journey.</i></h1>
+<div class="hero-copy">这版不是“景点清单”，而是可以真正拿着走的旅行 App：跨城交通、妈妈体力、周日营业、冬季日照、艺术馆、美食与亚洲胃救援全部一起考虑。</div>
+<div class="route">
+<span class="chip">🇨🇿 <strong>Prague</strong> transit · 1N</span>
+<span class="chip">🇦🇹 <strong>Salzburg</strong> · 3N</span>
+<span class="chip">🇦🇹 <strong>Vienna</strong> · 3N</span>
+<span class="chip">🇭🇺 <strong>Budapest</strong> · 3N</span>
+<span class="chip">🇨🇿 <strong>Prague</strong> · 4N</span>
+</div>
+</div>
+<aside class="hero-card">
+<div class="label">COUNTDOWN TO PRAGUE</div>
+<div class="big" id="countdown">—</div>
+<div class="mini-grid">
+<div class="mini"><small>Central Europe</small><b id="cetClock">—</b></div>
+<div class="mini"><small>Malaysia</small><b id="myClock">—</b></div>
+<div class="mini"><small>Nights</small><b>14</b></div>
+<div class="mini"><small>Style</small><b>Slow ✦</b></div>
+</div>
+</aside>
+</div>
+</header>
+<div class="illustrated-route" aria-label="Illustrated Central Europe route">
+  <div class="route-card">
+    <svg viewBox="0 0 1100 245" role="img" aria-label="Prague Salzburg Vienna Budapest illustrated route">
+      <rect width="1100" height="245" rx="26" fill="#F5F1E7"/>
+      <path d="M0 177 C110 128 180 153 270 128 C365 102 440 145 535 118 C650 84 718 126 820 105 C920 84 1005 110 1100 72 L1100 245 L0 245Z" fill="#C8CFB3"/>
+      <path d="M0 202 C120 168 210 192 320 162 C430 130 520 177 630 145 C745 112 835 158 945 127 C1010 108 1060 112 1100 104 L1100 245 L0 245Z" fill="#D9DCC3"/>
+      <path d="M115 160 C240 110 360 173 478 123 S715 120 842 108 S995 98 1035 88" fill="none" stroke="#C86643" stroke-width="4" stroke-linecap="round" stroke-dasharray="3 13"/>
+      <g fill="#15382D" opacity=".92">
+        <path d="M84 154h50v-54h-50z"/><path d="M78 101l31-34 31 34z" fill="#E6C9C5"/><rect x="101" y="120" width="14" height="34" fill="#F5F1E7"/>
+        <path d="M333 157l36-65 36 65z" fill="#BDC9D8"/><path d="M371 157l46-83 46 83z" fill="#C4D4DE"/><circle cx="419" cy="91" r="7" fill="#F5F1E7"/>
+        <rect x="610" y="105" width="70" height="54" rx="3"/><path d="M600 106h90l-45-35z" fill="#E6C9C5"/><rect x="638" y="124" width="14" height="35" fill="#F5F1E7"/>
+        <path d="M887 160h96v-13h-96z"/><path d="M902 147v-45h12v45m42 0v-45h12v45" stroke="#15382D" stroke-width="7"/><path d="M908 103c10-25 44-25 54 0" fill="none" stroke="#15382D" stroke-width="7"/>
+      </g>
+      <g font-family="Manrope, sans-serif" fill="#15382D">
+        <text x="62" y="190" font-size="16" font-weight="700">Prague</text>
+        <text x="342" y="190" font-size="16" font-weight="700">Salzburg</text>
+        <text x="612" y="190" font-size="16" font-weight="700">Vienna</text>
+        <text x="888" y="190" font-size="16" font-weight="700">Budapest</text>
+      </g>
+      <g fill="#C86643"><circle cx="109" cy="160" r="6"/><circle cx="398" cy="160" r="6"/><circle cx="645" cy="160" r="6"/><circle cx="934" cy="160" r="6"/></g>
+      <g stroke="#15382D" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <path d="M202 66h48l13 10h34"/><path d="M232 53v25"/><path d="M226 53h12"/>
+      </g>
+      <circle cx="236" cy="51" r="3" fill="#C86643"/>
+    </svg>
+    <div class="route-caption"><b>Prague → Salzburg → Vienna → Budapest → Prague</b><span>10–24 NOV 2026 · slow winter journey</span></div>
+  </div>
+</div>
+<div class="story-intro">
+  <div class="story-note"><h3>Travel slowly.</h3><p>城市不是 checklist。Salzburg 留天气弹性，Vienna 留艺术与咖啡，Budapest 留夜景与亚洲胃 reset，Prague 后段配合妈妈团。</p></div>
+  <div class="story-note alt"><h3>Nothing gets deleted.</h3><p>所有已确认资料继续保留；太长的内容用城市 / 区域 dropdown、filter 和 strike-off 管理，不再用“精简”解决。</p></div>
+</div>
+
+<nav class="toolbar"><div class="wrap tabs">
+<a href="#overview">✦ Overview</a><a href="#itinerary">🗓 Day-by-Day</a><a href="#booking">🎟 Book</a><a href="#food">🍜 Food</a><a href="#transport">🚆 Transport</a><a href="#weather">🧥 Weather</a><a href="#packing">🧳 Pack</a><a href="#stay">🛏 Stay</a><a href="#notes">⚠ Notes</a>
+</div></nav>
+<main class="wrap">
+<section class="section" id="overview">
+<div class="section-title"><div><h2>Trip Dashboard</h2><p>真正会影响你这趟旅行的重点，先放最上面。</p></div><span class="eyebadge">MASTER · EDITORIAL EDITION</span></div>
+<div class="grid4">
+<div class="metric"><small>TRIP</small><b>15 Days</b></div><div class="metric"><small>NIGHTS</small><b>14 Nights</b></div><div class="metric"><small>CITIES</small><b>4 Cities</b></div><div class="metric"><small>FINAL BASE</small><b>Prague 20–24</b></div>
+</div>
+<div class="alerts">
+<div class="alert red"><strong>Salzburg 圣诞市集会错过</strong><p>主 Christkindlmarkt 2026 是 19 Nov 才开始；你 14 Nov 已离开 Salzburg。</p></div>
+<div class="alert green"><strong>Vienna 圣诞氛围 ✔</strong><p>Rathausplatz 13 Nov 开、Stephansplatz 6 Nov 开、Schönbrunn 6 Nov 开；14–16 Nov 都有。</p></div>
+<div class="alert gold"><strong>Prague 只有早开的市集</strong><p>20 Nov 开的是 Náměstí Míru；Old Town / Wenceslas 28 Nov 才开，你已回程。</p></div>
+</div>
+<div class="flight-wrap">
+<article class="card flight"><div class="who"><b>✈️ Danwei · Qatar Airways</b><span class="airline">Confirmed itinerary</span></div>
+<div class="leg"><div class="airport"><b>SIN</b><small>10 Nov 03:15</small></div><div class="arrowline"></div><div class="airport"><b>DOH</b><small>06:00</small></div><div class="leg-note">QR945 · Economy</div></div>
+<div class="leg"><div class="airport"><b>DOH</b><small>09:20</small></div><div class="arrowline"></div><div class="airport"><b>PRG</b><small>13:25 · T1</small></div><div class="leg-note">QR291 · 10 Nov</div></div>
+<div class="leg"><div class="airport"><b>PRG</b><small>24 Nov 14:55 · T1</small></div><div class="arrowline"></div><div class="airport"><b>DOH</b><small>22:35</small></div><div class="leg-note">QR292 · return</div></div>
+<div class="leg"><div class="airport"><b>DOH</b><small>25 Nov 02:05</small></div><div class="arrowline"></div><div class="airport"><b>SIN</b><small>14:55 · T1</small></div><div class="leg-note">QR948</div></div>
+</article>
+<article class="card flight"><div class="who"><b>✈️ Mum · KLM</b><span class="airline">Confirmed itinerary</span></div>
+<div class="leg"><div class="airport"><b>SIN</b><small>10 Nov 01:40 · T1</small></div><div class="arrowline"></div><div class="airport"><b>AMS</b><small>08:35</small></div><div class="leg-note">KL836 · Economy</div></div>
+<div class="leg"><div class="airport"><b>AMS</b><small>12:20</small></div><div class="arrowline"></div><div class="airport"><b>PRG</b><small>13:45 · T2</small></div><div class="leg-note">KL1355 · 10 Nov</div></div>
+<div class="leg"><div class="airport"><b>PRG</b><small>24 Nov 14:30 · T2</small></div><div class="arrowline"></div><div class="airport"><b>AMS</b><small>16:00</small></div><div class="leg-note">KL1356 · return</div></div>
+<div class="leg"><div class="airport"><b>AMS</b><small>20:45</small></div><div class="arrowline"></div><div class="airport"><b>SIN</b><small>25 Nov 16:15 · T1</small></div><div class="leg-note">KL835</div></div>
+</article>
+</div>
+<article class="card route-map">
+<div class="route-line">
+<div class="citystop"><b>10 Nov · Prague</b><small>Arrival + reunion · 1N</small></div><div class="connector">→</div>
+<div class="citystop"><b>11–14 · Salzburg</b><small>3 nights · slow alpine city</small></div><div class="connector">→</div>
+<div class="citystop"><b>14–17 · Vienna</b><small>3 nights · art + cafés</small></div><div class="connector">→</div>
+<div class="citystop"><b>17–20 · Budapest</b><small>3 nights · food + Danube</small></div><div class="connector">→</div>
+<div class="citystop"><b>20–24 · Prague</b><small>4 nights · Mum group base</small></div>
+</div>
+</article><article class="card plan-audit"><h3>✓ 行程内容复核完成</h3><div class="audit-grid">
+<div class="audit-item"><b>🇦🇹 Salzburg</b>3晚天气 buffer、Mirabell、Makartsteg、老城、Cathedral、Fortress 日落、Fingerlos、湖区 optional 都在。</div>
+<div class="audit-item"><b>🇦🇹 Vienna</b>Schönbrunn、艺术馆、Vienna coffee、Apfelstrudel/Sachertorte、香肠、Schnitzel、Golden Hall / Votivkirche、Sunday 营业逻辑都在。</div>
+<div class="audit-item"><b>🇭🇺 Budapest</b>鹅肝、Central Market、Buda Castle、City Park、亚洲餐 reset、Danube night cruise；温泉保持 optional。</div>
+<div class="audit-item"><b>🇨🇿 Prague</b>前段只 transit；20–24 Nov 固定回 Prague 配合妈妈团，自由空档优先美术馆 + 亚洲餐。</div>
+</div></article>
+</section>
+<section class="section" id="itinerary">
+<div class="section-title"><div><h2>Day by Day</h2><p>Prague 前段不玩；最后 20–24 Nov 回 Prague 配合妈妈团。每天只放真正适合的量。</p></div><span class="eyebadge">SLOW · NO BACKTRACK</span></div>
+<div class="day-list">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<details class="city-group" open=""><summary><div><div>🇨🇿 Prague · Transit</div><div class="city-meta">10 Nov · 1 night · 不正式玩 Prague</div></div><span class="arrow">⌄</span></summary><div class="city-group-inner"><div class="day-list"><details class="card day" open=""><summary><div class="date"><b>10</b><small>NOV · TUE</small></div><div><h3>🇨🇿 Prague · Arrival &amp; Reunion</h3><div class="meta">Transit night · 不正式玩 Prague</div><span class="tag">MUM FRIENDLY</span></div><span class="eyebadge">DAY 1</span></summary><div class="day-body">
+<div class="timeline"><div class="time">13:25</div><div><b>Danwei 抵达 PRG T1</b><p>QR291 from Doha。</p></div></div>
+<div class="timeline"><div class="time">13:45</div><div><b>妈妈抵达 PRG T2</b><p>KL1355 from Amsterdam。机场汇合后直接去酒店。</p></div></div>
+<div class="timeline"><div class="time">PM</div><div><b>Check-in + Rest</b><p>第一晚只休息、吃附近晚餐。住宿以第二天去车站方便为主。</p></div></div>
+<div class="day-note">✔ 这一天不安排 Charles Bridge / Old Town，避免把后段妈妈本来会玩的 Prague 提前消耗掉。</div>
+</div></details></div></div></details><details class="city-group"><summary><div><div>🇦🇹 Salzburg</div><div class="city-meta">11–14 Nov · 3 nights · slow + weather buffer</div></div><span class="arrow">⌄</span></summary><div class="city-group-inner"><div class="day-list"><details class="card day" open=""><summary><div class="date"><b>11</b><small>NOV · WED</small></div><div><h3>🇦🇹 Prague → Salzburg</h3><div class="meta">跨城 + Old Town first look</div><span class="tag warn">TRAIN</span></div><span class="eyebadge">DAY 2</span></summary><div class="day-body">
+<div class="timeline"><div class="time">AM</div><div><b>Prague → Salzburg</b><p>订少换乘方案，优先舒适与行李方便。正式买票前比较 ÖBB / RegioJet / CD 当日最优组合。</p></div></div>
+<div class="timeline"><div class="time">PM</div><div><b>Mirabell Gardens → Makartsteg</b><p>先走轻松平地路线，看 Salzburg 河景与城市轮廓。</p><a class="maps" href="https://www.google.com/maps/search/?api=1&amp;query=Mirabell+Gardens+Salzburg" target="_blank">Maps ↗</a></div></div>
+<div class="timeline"><div class="time">17:00</div><div><b>Getreidegasse + Old Town</b><p>Mozart Geburtshaus 经过即可；你若真的想看音乐史才买票进去。</p></div></div>
+<div class="timeline"><div class="time">Dinner</div><div><b>第一顿 Austrian food</b><p>可以选 Das Gablerbräu / Braurestaurant Imlauer；别一次点太重。</p></div></div>
+</div></details><details class="card day"><summary><div class="date"><b>12</b><small>NOV · THU</small></div><div><h3>🇦🇹 Salzburg · Fortress Golden Hour</h3><div class="meta">老城 + 要塞 · 重点日</div><span class="tag">PHOTO DAY</span></div><span class="eyebadge">DAY 3</span></summary><div class="day-body">
+<div class="timeline"><div class="time">09:30</div><div><b>Residenzplatz → Salzburg Cathedral → Mozartplatz</b><p>景点密集、基本不走回头路。</p></div></div>
+<div class="timeline"><div class="time">Lunch</div><div><b>Stiftsbäckerei St Peter / light lunch</b><p>最古老面包坊可顺路买；留肚子给下午 café。</p></div></div>
+<div class="timeline"><div class="time">14:30</div><div><b>Hohensalzburg Fortress</b><p>这趟 Salzburg 的核心景点；冬季日落早，刻意排下午。</p><a class="maps" href="https://www.google.com/maps/search/?api=1&amp;query=Hohensalzburg+Fortress" target="_blank">Maps ↗</a></div></div>
+<div class="timeline"><div class="time">16:00</div><div><b>Blue hour / sunset</b><p>屋顶、河流、远山一起看。不要赶着下山。</p></div></div>
+<div class="timeline"><div class="time">Evening</div><div><b>Mozartplatz / riverside slow walk</b><p>冬天若有小型滑冰场或季节布置就随缘停留。</p></div></div>
+</div></details><details class="card day"><summary><div class="date"><b>13</b><small>NOV · FRI</small></div><div><h3>🇦🇹 Salzburg · Weather Buffer Day</h3><div class="meta">第 3 晚的价值 = 不赶 + 看天气</div><span class="tag blue">FLEX</span></div><span class="eyebadge">DAY 4</span></summary><div class="day-body">
+<div class="timeline"><div class="time">AM</div><div><b>Café Fingerlos + Kaiserschmarrn</b><p>你截图里特别喜欢的选择；注意 Monday 休息，但今天是 Friday。</p></div></div>
+<div class="timeline"><div class="time">晴天</div><div><b>Option A · St. Wolfgang / Salzkammergut</b><p>天气真的漂亮才去湖区；冬季交通时刻要前一晚再确认。</p></div></div>
+<div class="timeline"><div class="time">阴天</div><div><b>Option B · Salzburg slow day</b><p>河边、粮食胡同、咖啡、买小东西。你会比赶一个远郊更舒服。</p></div></div>
+<div class="day-note">⚠ 重要：Salzburg 主 Christkindlmarkt 2026 要 19 Nov 才开，所以这三晚不要以“圣诞市集”为理由加行程。</div>
+</div></details></div></div></details><details class="city-group"><summary><div><div>🇦🇹 Vienna</div><div class="city-meta">14–17 Nov · 3 nights · art + café + Christmas mood</div></div><span class="arrow">⌄</span></summary><div class="city-group-inner"><div class="day-list"><details class="card day"><summary><div class="date"><b>14</b><small>NOV · SAT</small></div><div><h3>🇦🇹 Salzburg → Vienna</h3><div class="meta">Saturday · Shopping + Christmas mood</div><span class="tag warn">SHOP TODAY</span></div><span class="eyebadge">DAY 5</span></summary><div class="day-body">
+<div class="timeline"><div class="time">AM</div><div><b>Train to Vienna</b><p>ÖBB direct / simple transfer 优先。</p></div></div>
+<div class="timeline"><div class="time">PM</div><div><b>Stephansplatz → Graben → Kohlmarkt</b><p>今天 Saturday，想逛街就放今天；不要等 Sunday。</p></div></div>
+<div class="timeline"><div class="time">Café</div><div><b>Vienna coffee + Apfelstrudel / Sachertorte</b><p>你明确要喝 Vienna coffee；甜点不要一天塞完。</p></div></div>
+<div class="timeline"><div class="time">Night</div><div><b>Vienna Christmas Market</b><p>Rathausplatz / Stephansplatz / Freyung 这时已开，可择一。</p></div></div>
+</div></details><details class="card day"><summary><div class="date"><b>15</b><small>NOV · SUN</small></div><div><h3>🇦🇹 Vienna · Schönbrunn + Art</h3><div class="meta">Sunday · 不排零售购物</div><span class="tag red">SUNDAY</span><span class="tag warn">BOOK AHEAD</span></div><span class="eyebadge">DAY 6</span></summary><div class="day-body">
+<div class="timeline"><div class="time">09:00</div><div><b>Schönbrunn Palace timed entry</b><p>宫殿 2026 冬季 08:30–17:00；提前买时间票。</p><a class="maps" href="https://www.google.com/maps/search/?api=1&amp;query=Schonbrunn+Palace+Vienna" target="_blank">Maps ↗</a></div></div>
+<div class="timeline"><div class="time">11:00</div><div><b>Palace Park</b><p>11 月 park 06:30–17:30。你特别提醒要记关门时间，已固定在这里。</p></div></div>
+<div class="timeline"><div class="time">13:30</div><div><b>Schönbrunn Christmas Market</b><p>2026 从 6 Nov 开，10:00–21:00；就在宫殿前，顺路。</p></div></div>
+<div class="timeline"><div class="time">PM</div><div><b>Belvedere / Albertina 二选一</b><p>你比一般博物馆更喜欢艺术馆，所以 Vienna 把“艺术”正式当主线。</p></div></div>
+<div class="day-note">Sunday rule：奥地利一般商店/百货多关闭；机场、车站等有例外。今天故意排宫殿、美术馆、Christmas market。</div>
+</div></details><details class="card day"><summary><div class="date"><b>16</b><small>NOV · MON</small></div><div><h3>🇦🇹 Vienna · Art, Café &amp; Music</h3><div class="meta">你很可能最喜欢的一天</div><span class="tag">ART</span><span class="tag warn">CONCERT OPTION</span></div><span class="eyebadge">DAY 7</span></summary><div class="day-body">
+<div class="timeline"><div class="time">10:00</div><div><b>Albertina / Kunsthistorisches Museum</b><p>按最终特展选择；不建议两个大型馆同一天都硬吃完。</p></div></div>
+<div class="timeline"><div class="time">Lunch</div><div><b>Figlmüller / Schnitzel One</b><p>要吃一次正宗 Wiener Schnitzel；配 potato-field salad。</p></div></div>
+<div class="timeline"><div class="time">15:30</div><div><b>Karlskirche + coffee break</b><p>教堂、城市建筑、咖啡都留白，不排满。</p></div></div>
+<div class="timeline"><div class="time">Night</div><div><b>Musikverein Golden Hall OR Votivkirche light show</b><p>两个都值得，但不建议同晚硬塞。Golden Hall 若买座票优先前一点。</p></div></div>
+<div class="day-note">Vienna 要吃：苹果派 / Sachertorte / Vienna sausage / Wiener Schnitzel；Mozartkugel 很甜，不列必买。</div>
+</div></details></div></div></details><details class="city-group"><summary><div><div>🇭🇺 Budapest</div><div class="city-meta">17–20 Nov · 3 nights · food + Danube</div></div><span class="arrow">⌄</span></summary><div class="city-group-inner"><div class="day-list"><details class="card day"><summary><div class="date"><b>17</b><small>NOV · TUE</small></div><div><h3>🇭🇺 Vienna → Budapest</h3><div class="meta">最短跨城段 · 轻松一点</div><span class="tag warn">TRAIN</span></div><span class="eyebadge">DAY 8</span></summary><div class="day-body">
+<div class="timeline"><div class="time">AM</div><div><b>Slow breakfast + last Vienna coffee</b><p>不赶 7–8am 的车。</p></div></div>
+<div class="timeline"><div class="time">Midday</div><div><b>Vienna → Budapest</b><p>比较 Railjet / RegioJet；若价差不大，长途优先舒适座位。</p></div></div>
+<div class="timeline"><div class="time">PM</div><div><b>Check-in + Danube walk</b><p>只看河景与 Parliament 夜色，不再塞城堡。</p></div></div>
+</div></details><details class="card day"><summary><div class="date"><b>18</b><small>NOV · WED</small></div><div><h3>🇭🇺 Budapest · Classic + Goose Liver</h3><div class="meta">城市经典 + 你真正想吃的</div><span class="tag">FOOD FOCUS</span></div><span class="eyebadge">DAY 9</span></summary><div class="day-body">
+<div class="timeline"><div class="time">AM</div><div><b>Central Market Hall → Liberty Bridge</b><p>早餐/小吃、买 paprika、纪念品。市场一层吃、二层看纪念品。</p></div></div>
+<div class="timeline"><div class="time">PM</div><div><b>Buda Castle District</b><p>Fisherman’s Bastion / Matthias Church / 河景；体力不够就只取最美部分。</p></div></div>
+<div class="timeline"><div class="time">Dinner</div><div><b>Goose liver night</b><p>Comme Chez Soi 优先，约不到就 Café Kör / Kiskakukk / VakVarjú。</p></div></div>
+</div></details><details class="card day"><summary><div class="date"><b>19</b><small>NOV · THU</small></div><div><h3>🇭🇺 Budapest · City Park + Danube Night</h3><div class="meta">温泉 optional · 夜游船必留</div><span class="tag warn">CRUISE</span></div><span class="eyebadge">DAY 10</span></summary><div class="day-body">
+<div class="timeline"><div class="time">AM</div><div><b>Heroes’ Square → Városliget City Park</b><p>你看过经典河岸以后，这里给 Budapest 另一种感觉。</p></div></div>
+<div class="timeline"><div class="time">Lunch</div><div><b>Asian reset · Pho Saigon / highlighted Asian option</b><p>正式保留亚洲菜，不再当“没办法才吃”。</p></div></div>
+<div class="timeline"><div class="time">PM</div><div><b>Local café / ruin bar optional</b><p>温泉不是必去，你自己已经说还好，所以不占半天。</p></div></div>
+<div class="timeline"><div class="time">20:00</div><div><b>Danube Night Cruise</b><p>⭐ Budapest 必留。以 Parliament 亮灯后的班次为优先。</p></div></div>
+</div></details></div></div></details><details class="city-group"><summary><div><div>🇨🇿 Prague · Mum Group Base</div><div class="city-meta">20–24 Nov · 4 nights · group-led</div></div><span class="arrow">⌄</span></summary><div class="city-group-inner"><div class="day-list"><details class="card day"><summary><div class="date"><b>20</b><small>NOV · FRI</small></div><div><h3>🇨🇿 Budapest → Prague</h3><div class="meta">回到 Prague · 妈妈团 base 开始</div><span class="tag warn">TRAIN</span><span class="tag">MARKET OPENS</span></div><span class="eyebadge">DAY 11</span></summary><div class="day-body">
+<div class="timeline"><div class="time">AM</div><div><b>Budapest → Prague</b><p>交通日不塞早晨景点。</p></div></div>
+<div class="timeline"><div class="time">PM</div><div><b>Check-in + Rest</b><p>20–24 Nov 必须在 Prague，配合妈妈团安排。</p></div></div>
+<div class="timeline"><div class="time">Evening</div><div><b>Náměstí Míru Christmas Market</b><p>2026 官方日期：20 Nov–24 Dec，10:00–20:00。你刚好开幕日回来。</p></div></div>
+</div></details><details class="card day"><summary><div class="date"><b>21</b><small>NOV · SAT</small></div><div><h3>🇨🇿 Prague · Mum Group Day / Free Pockets</h3><div class="meta">不重复硬排 Prague 主景点</div><span class="tag blue">GROUP-LED</span></div><span class="eyebadge">DAY 12</span></summary><div class="day-body">
+<div class="timeline"><div class="time">Group</div><div><b>以妈妈团正式行程为主</b><p>你前段没有玩 Prague，就是为了这几天不重复、不把自己累死。</p></div></div>
+<div class="timeline"><div class="time">Free</div><div><b>你的 optional：艺术馆 / Café / 吃饭</b><p>National Gallery Prague、Museum Kampa、DOX 选一；不跟团冲突才放。</p></div></div>
+</div></details><details class="card day"><summary><div class="date"><b>22</b><small>NOV · SUN</small></div><div><h3>🇨🇿 Prague · Art over Museum</h3><div class="meta">Sunday · 继续跟团 / 空档给艺术</div><span class="tag">ART OPTION</span></div><span class="eyebadge">DAY 13</span></summary><div class="day-body">
+<div class="timeline"><div class="time">Group</div><div><b>妈妈团优先</b><p>Exact timing 以团方为准。</p></div></div>
+<div class="timeline"><div class="time">Free</div><div><b>Prague art pick</b><p>你已经明确：博物馆一般，美术馆更喜欢。所以空档优先 National Gallery / Kampa / DOX。</p></div></div>
+<div class="timeline"><div class="time">Food</div><div><b>Asian dinner option</b><p>Prague 后段一定保留 1–2 顿亚洲菜，避免连续重西餐。</p></div></div>
+</div></details><details class="card day"><summary><div class="date"><b>23</b><small>NOV · MON</small></div><div><h3>🇨🇿 Prague · Last Full Day</h3><div class="meta">跟团 + 补买 + 最后一顿</div><span class="tag">SHOP / FOOD</span></div><span class="eyebadge">DAY 14</span></summary><div class="day-body">
+<div class="timeline"><div class="time">Day</div><div><b>妈妈团 / Prague free time</b><p>不再塞大型景点。</p></div></div>
+<div class="timeline"><div class="time">Free</div><div><b>Souvenir &amp; local design</b><p>Manufaktura、Apoteka、明信片、捷克设计小物。Artiseme / PBG Studio 如顺路再去。</p></div></div>
+<div class="timeline"><div class="time">Dinner</div><div><b>Farewell meal</b><p>选整趟最想再吃的一间，不为“必须捷克菜”而吃。</p></div></div>
+</div></details><details class="card day"><summary><div class="date"><b>24</b><small>NOV · TUE</small></div><div><h3>🇨🇿 Prague · Fly Home</h3><div class="meta">Danwei T1 · Mum T2</div><span class="tag red">AIRPORT</span></div><span class="eyebadge">DAY 15</span></summary><div class="day-body">
+<div class="timeline"><div class="time">AM</div><div><b>Breakfast + Check-out</b><p>不安排任何需要门票的景点。</p></div></div>
+<div class="timeline"><div class="time">~11:00</div><div><b>Leave for PRG Airport</b><p>预留交通、退税、不同 terminal 的时间。</p></div></div>
+<div class="timeline"><div class="time">14:30</div><div><b>Mum KL1356 · PRG T2 → AMS</b><p>16:00 抵达 Amsterdam。</p></div></div>
+<div class="timeline"><div class="time">14:55</div><div><b>Danwei QR292 · PRG T1 → DOH</b><p>22:35 抵达 Doha。</p></div></div>
+</div></details></div></div></details></div>
+</section>
+<section class="section" id="booking"><div class="section-title"><div><h2>Book &amp; Buy Checklist</h2><p>火车、门票、餐厅统一放这里。勾选后会自动保存并整项划掉。</p></div><span class="eyebadge">SAVE + STRIKE OFF</span></div><div class="booking-grid">
+<article class="card ticket-card full"><h3>🚆 跨城火车 · 购买版本</h3><p class="ticket-help">时间先按最适合你和妈妈的目标班次写好；真正付款前再以 App 当天显示为准。车厢号码会随编组变化，所以这里写“该买的等级”，不乱写固定 coach number。</p>
+<label class="check"><input data-save="train-prg-szg" type="checkbox"/><div class="ct"><b>11 Nov · Prague → Salzburg · 10:01 target</b><div class="ticket-spec"><span><b>上车</b>Praha hl.n.</span><span><b>路线</b>Jižní expres → Linz Hbf → Railjet</span><span><b>App</b>Můj vlak (ČD)</span><span><b>车厢</b>1st Class + reserved seat</span></div><p>官方 2026 时刻表常规班次 10:01 出发，约 5h47，Linz 一次换乘。你们有行李，座位尽量选靠行李架 / 车门不要太远。</p><div class="ticket-note">买票时：Prague hl.n. → Salzburg Hbf；两段都确认有 seat reservation。</div></div><span class="prio now">BUY</span></label>
+<label class="check"><input data-save="train-szg-vie" type="checkbox"/><div class="ct"><b>14 Nov · Salzburg → Vienna · 09:07 target</b><div class="ticket-spec"><span><b>上车</b>Salzburg Hbf</span><span><b>下车</b>Wien Hbf</span><span><b>App</b>ÖBB</span><span><b>车厢</b>1st Class · RJ/RJX</span></div><p>选 direct Railjet / Railjet Xpress，约 2h20–2h30。09:00 左右出发，抵达后还有完整 Saturday 下午逛街。</p><div class="ticket-note">若 09:07 班次当天有调整，就选最接近 09:00、直达的 RJ/RJX。</div></div><span class="prio now">BUY</span></label>
+<label class="check"><input data-save="train-vie-bud" type="checkbox"/><div class="ct"><b>17 Nov · Vienna → Budapest · 10:27 target</b><div class="ticket-spec"><span><b>上车</b>Wien Hbf</span><span><b>下车</b>Budapest-Déli / Kelenföld</span><span><b>App</b>RegioJet</span><span><b>车厢</b>Relax Coach · 2+1</span></div><p>你给的经验帖也特别推荐 Relax Coach；比 Standard 2+2 更舒服。目标 10:27 左右出发、约 13:00 到，不需要一早赶车。</p><div class="ticket-note">优先 Relax，不建议为了省一点钱降 Standard；若 Business 只贵少量也可升级。</div></div><span class="prio now">BUY</span></label>
+<label class="check"><input data-save="train-bud-prg" type="checkbox"/><div class="ct"><b>20 Nov · Budapest → Prague · 07:45 target</b><div class="ticket-spec"><span><b>上车</b>Budapest-Déli 07:45 / Kelenföld 07:58</span><span><b>下车</b>Praha hl.n. ~14:56</span><span><b>App</b>RegioJet</span><span><b>车厢</b>Relax Coach · reserved seat</span></div><p>这班比较早，但最适合你的计划：下午约 15:00 回到 Prague，check-in 后晚上还能看 20 Nov 开幕的 Náměstí Míru Christmas Market。</p><div class="ticket-note">若不想从 Déli 上车，可按住宿看 Kelenföld 是否更顺；两人座尽量选同侧相邻。</div></div><span class="prio now">BUY</span></label>
+</article>
+<article class="card group"><h3>🔴 下周优先门票</h3>
+<label class="check"><input data-save="schonbrunn" type="checkbox"/><div class="ct"><b>Schönbrunn Palace · 15 Nov · 09:00 target</b><p>Official timed entry。Sunday 核心行程；后花园冬季约 17:30 关，别排太迟。</p></div><span class="prio now">NOW</span></label>
+<label class="check"><input data-save="danube" type="checkbox"/><div class="ct"><b>Budapest Danube Night Cruise · 19 Nov · 20:00 target</b><p>优先国会大厦亮灯后的 1 小时夜航；确认码头位置后再锁。</p></div><span class="prio now">NOW</span></label>
+<label class="check"><input data-save="musikverein" type="checkbox"/><div class="ct"><b>Musikverein Golden Hall · 16 Nov evening</b><p>若选音乐会，买 Großer Musikvereinssaal 的 Sitzplatz，尽量前一点，不买 standing。</p></div><span class="prio soon">SOON</span></label>
+<label class="check"><input data-save="votive" type="checkbox"/><div class="ct"><b>Votivkirche Light of Creation · 16 Nov alternate</b><p>与 Golden Hall 二选一，不要同晚硬塞。</p></div><span class="prio soon">SOON</span></label>
+</article>
+<article class="card group"><h3>🟠 餐厅预约</h3>
+<label class="check"><input data-save="figlmuller" type="checkbox"/><div class="ct"><b>Figlmüller Vienna · 16 Nov lunch</b><p>热门，建议提前。主吃 Wiener Schnitzel + potato-field salad。</p></div><span class="prio soon">SOON</span></label>
+<label class="check"><input data-save="comme" type="checkbox"/><div class="ct"><b>Comme Chez Soi Budapest · 18 Nov dinner</b><p>鹅肝重点候选，难约；约不到就 Café Kör / Kiskakukk。</p></div><span class="prio soon">SOON</span></label>
+<label class="check"><input data-save="paprika" type="checkbox"/><div class="ct"><b>Paprika Vendéglő / VakVarjú</b><p>确定想吃再订，不需要两家都锁。</p></div><span class="prio later">OPTION</span></label>
+<label class="check"><input data-save="barenwirt" type="checkbox"/><div class="ct"><b>Bärenwirt Salzburg · optional</b><p>传统炸物；若 13 Nov 湖区天气差，可留给 Salzburg slow day。</p></div><span class="prio later">OPTION</span></label>
+</article>
+<article class="card group"><h3>🟡 景点 / City Card</h3>
+<label class="check"><input data-save="fortress" type="checkbox"/><div class="ct"><b>Hohensalzburg Fortress · 12 Nov · 14:30</b><p>核心景点；确认冬季 funicular 与 closing time，留到 sunset / blue hour。</p></div><span class="prio later">LATER</span></label>
+<label class="check"><input data-save="salzburg-card" type="checkbox"/><div class="ct"><b>Salzburg Card</b><p>只在最终确定会进 Fortress + 其他付费景点后才算值不值，不照旧帖价格买。</p></div><span class="prio later">CHECK</span></label>
+<label class="check"><input data-save="vienna-art" type="checkbox"/><div class="ct"><b>Vienna Art Museum · 15/16 Nov</b><p>Albertina / Belvedere / KHM 按最终展览决定；你喜欢艺术馆，所以保留至少一个。</p></div><span class="prio later">CHECK</span></label>
+<label class="check"><input data-save="prague-art" type="checkbox"/><div class="ct"><b>Prague Art Museum · 21–23 Nov free pocket</b><p>National Gallery / Kampa / DOX 看妈妈团空档再买。</p></div><span class="prio later">LATER</span></label>
+</article>
+<article class="card group"><h3>🟢 市内交通 · 到了再买</h3>
+<label class="check"><input data-save="wienmobil" type="checkbox"/><div class="ct"><b>Vienna · WienMobil / Wiener Linien</b><p>14 Nov 抵达后按 72h 是否划算再买；App 内买市内票。</p></div><span class="prio later">APP</span></label>
+<label class="check"><input data-save="salzburg-local" type="checkbox"/><div class="ct"><b>Salzburg · ÖBB App / SimplyGo</b><p>上下车 swipe；只在当地公交行程多时用。不是跨城火车票。</p></div><span class="prio later">APP</span></label>
+<label class="check"><input data-save="budapest-pass" type="checkbox"/><div class="ct"><b>Budapest · BudapestGO</b><p>17 Nov 到埗后按 3 天路线买 72h / travelcard，不需要现在锁。</p></div><span class="prio later">APP</span></label>
+<label class="check"><input data-save="prague-pass" type="checkbox"/><div class="ct"><b>Prague · PID Lítačka</b><p>20–24 Nov 跟团为主；看自由活动时间再买市内票，不买 tourist pass。</p></div><span class="prio later">APP</span></label>
+</article>
+</div></section>
+<section class="section" id="markets">
+<div class="section-title"><div><h2>Christmas Market Reality Check</h2><p>不再用“应该会有”这种说法，能确认的我直接标日期。</p></div></div>
+<div class="market-table">
+<article class="card market"><div class="cityname">Salzburg</div><div><b>Dom- &amp; Residenzplatz Christkindlmarkt</b><p>19 Nov 2026 才开；你 11–14 Nov 在 Salzburg。</p></div><span class="status no">MISS</span></article>
+<article class="card market"><div class="cityname">Vienna</div><div><b>多家已开</b><p>Schönbrunn 6 Nov；Stephansplatz 6 Nov；Rathausplatz 13 Nov；Freyung 14 Nov。</p></div><span class="status yes">YES</span></article>
+<article class="card market"><div class="cityname">Budapest</div><div><b>2026 exact opening 需再查</b><p>2025 大型市集在 14 Nov 开；你 17–20 Nov 在 Budapest，很有机会，但我不会当成已确认。</p></div><span class="status maybe">RECHECK</span></article>
+<article class="card market"><div class="cityname">Prague</div><div><b>Náměstí Míru 20 Nov 开</b><p>20 Nov–24 Dec 10:00–20:00。Old Town / Wenceslas 都是 28 Nov 才开，你会错过主市集。</p></div><span class="status yes">SMALL MARKET</span></article>
+</div>
+</section>
+<section class="section" id="food">
+<div class="section-title"><div><h2>Eat Well</h2><p>当地菜不是任务；亚洲菜也不是 emergency。你无法天天西餐，这版正式保留 reset meals。</p></div></div>
+<div class="filterbar" id="foodFilter"><button class="active" data-filter="all">全部</button><button data-filter="local">当地菜</button><button data-filter="asian">亚洲菜</button><button data-filter="cafe">Café / 甜点</button></div><p class="rating-note">⭐ Google rating 已于 15 Sep 2026 核对；评分会随新评论变动。点击「Google Maps」会直接打开对应店铺/搜索结果，旅行当天可再看最新评分、营业时间与路线。</p><p class="rating-note"><strong>✓ Food Strike-Off：</strong>每一家餐厅都有独立 checkbox。吃过后勾选，整张美食卡会自动划线并变淡；再次点击可恢复。状态会保存在这个装置的浏览器里。</p>
+<div class="" id="foodGrid">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<details class="food-city" data-food-city="vienna" open=""><summary><div>🇦🇹 Vienna<div class="city-meta">甜点 · 咖啡 · Schnitzel</div></div><span class="food-count"></span></summary><div class="food-city-body"><div class="food-grid"><article class="card food local" data-type="local"><label class="food-done"><input data-food-save="vienna-figlm-ller" type="checkbox"/> <span class="done-label">STRIKE OFF · 吃过了</span></label><div class="food-content"><div class="fcity">🇦🇹 VIENNA</div><h3>Figlmüller</h3><div class="food-meta"><a class="google-rating" href="https://www.google.com/maps/search/?api=1&query=Figlm%C3%BCller%2C+Vienna" target="_blank" rel="noopener">⭐ Google 4.1</a><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Figlm%C3%BCller%2C+Vienna" target="_blank" rel="noopener">📍 Google Maps</a></div><div class="stars">★★★★★</div><p>要吃一次 Wiener Schnitzel；推荐 potato-field salad with pumpkin seed oil。热门，建议订位。</p><div class="badges"><span class="tag must">MUST TRY</span></div></div></article><article class="card food cafe" data-type="cafe"><label class="food-done"><input data-food-save="vienna-vienna-coffee-apfelstrudel" type="checkbox"/> <span class="done-label">STRIKE OFF · 吃过了</span></label><div class="food-content"><div class="fcity">🇦🇹 VIENNA</div><h3>Vienna Coffee + Apfelstrudel</h3><div class="food-meta"><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=best+Apfelstrudel+Vienna%2C+Vienna" target="_blank" rel="noopener">📍 Google Maps · 附近选择</a></div><div class="stars">你的明确清单</div><p>Vienna coffee 一定喝；苹果派一定吃。甜点不要同一天把 Apfelstrudel + Sachertorte + Kaiserschmarrn 全塞完。</p><div class="badges"><span class="tag cafeb">CAFÉ</span></div></div></article><article class="card food cafe" data-type="cafe"><label class="food-done"><input data-food-save="vienna-demel-sachertorte" type="checkbox"/> <span class="done-label">STRIKE OFF · 吃过了</span></label><div class="food-content"><div class="fcity">🇦🇹 VIENNA</div><h3>Demel / Sachertorte</h3><div class="food-meta"><a class="google-rating" href="https://www.google.com/maps/search/?api=1&query=Demel%2C+Vienna" target="_blank" rel="noopener">⭐ Google 4.2</a><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Demel%2C+Vienna" target="_blank" rel="noopener">📍 Google Maps</a></div><div class="stars">★★★★</div><p>沙盒蛋糕 / 国王煎饼类甜点体验可分开吃。Mozartkugel 很甜，不列必买。</p><div class="badges"><span class="tag cafeb">SWEET</span></div></div></article><article class="card food local" data-type="local"><label class="food-done"><input data-food-save="vienna-bitzinger-vienna-sausage" type="checkbox"/> <span class="done-label">STRIKE OFF · 吃过了</span></label><div class="food-content"><div class="fcity">🇦🇹 VIENNA</div><h3>Bitzinger / Vienna Sausage</h3><div class="food-meta"><a class="google-rating" href="https://www.google.com/maps/search/?api=1&query=Bitzinger%2C+Vienna" target="_blank" rel="noopener">⭐ Google 4.1</a><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Bitzinger%2C+Vienna" target="_blank" rel="noopener">📍 Google Maps</a></div><div class="stars">★★★★</div><p>想吃香肠就做轻餐，不需要每顿都坐正式餐厅。</p></div></article><article class="card food local" data-type="local"><label class="food-done"><input data-food-save="vienna-schnitzel-burger-quick-bite" type="checkbox"/> <span class="done-label">STRIKE OFF · 吃过了</span></label><div class="food-content"><div class="fcity">🇦🇹 VIENNA</div><h3>Schnitzel Burger / quick bite</h3><div class="food-meta"><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Schnitzel+Burger+Vienna%2C+Vienna" target="_blank" rel="noopener">📍 Google Maps · 附近选择</a></div><div class="stars">你的明确清单</div><p>维也纳炸肉排汉堡保留成轻餐 / snack，不跟正式 Figlmüller 同一顿硬塞。</p><div class="badges"><span class="tag must">TRY ONCE</span></div></div></article></div></div></details><details class="food-city" data-food-city="salzburg"><summary><div>🇦🇹 Salzburg<div class="city-meta">Kaiserschmarrn · Austrian · Asian reset</div></div><span class="food-count"></span></summary><div class="food-city-body"><div class="food-grid"><article class="card food local" data-type="local"><label class="food-done"><input data-food-save="salzburg-caf-fingerlos" type="checkbox"/> <span class="done-label">STRIKE OFF · 吃过了</span></label><div class="food-content"><div class="fcity">🇦🇹 SALZBURG</div><h3>Café Fingerlos</h3><div class="food-meta"><a class="google-rating" href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9+Fingerlos%2C+Salzburg" target="_blank" rel="noopener">⭐ Google 4.3</a><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9+Fingerlos%2C+Salzburg" target="_blank" rel="noopener">📍 Google Maps</a></div><div class="stars">★★★★★</div><p>Kaiserschmarrn 是你截图里最想保留的 Salzburg 甜食之一；周一休息，但你在 Salzburg 是 Wed–Fri。</p><div class="badges"><span class="tag must">KEEP</span></div></div></article><article class="card food local" data-type="local"><label class="food-done"><input data-food-save="salzburg-b-renwirt-das-gablerbr-u" type="checkbox"/> <span class="done-label">STRIKE OFF · 吃过了</span></label><div class="food-content"><div class="fcity">🇦🇹 SALZBURG</div><h3>Bärenwirt / Das Gablerbräu</h3><div class="food-meta"><a class="google-rating" href="https://www.google.com/maps/search/?api=1&query=B%C3%A4renwirt%2C+Salzburg" target="_blank" rel="noopener">⭐ 4.5</a><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=B%C3%A4renwirt%2C+Salzburg" target="_blank" rel="noopener">📍 Bärenwirt</a><a class="google-rating" href="https://www.google.com/maps/search/?api=1&query=Das+Gablerbr%C3%A4u%2C+Salzburg" target="_blank" rel="noopener">⭐ 3.9</a><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Das+Gablerbr%C3%A4u%2C+Salzburg" target="_blank" rel="noopener">📍 Das Gablerbräu</a></div><div class="stars">★★★★</div><p>传统炸物 / Schnitzel / 猪脚类只需吃一顿代表作，不要连续重口。</p></div></article><article class="card food asian" data-type="asian"><label class="food-done"><input data-food-save="salzburg-akakiko-uncle-van" type="checkbox"/> <span class="done-label">STRIKE OFF · 吃过了</span></label><div class="food-content"><div class="fcity">🇦🇹 SALZBURG</div><h3>Akakiko / Uncle Van</h3><div class="food-meta"><a class="google-rating" href="https://www.google.com/maps/search/?api=1&query=Akakiko+Hauptbahnhof%2C+Salzburg" target="_blank" rel="noopener">⭐ 4.0</a><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Akakiko+Hauptbahnhof%2C+Salzburg" target="_blank" rel="noopener">📍 Akakiko Hauptbahnhof</a><a class="google-rating" href="https://www.google.com/maps/search/?api=1&query=Uncle+Van%2C+Salzburg" target="_blank" rel="noopener">⭐ 4.3</a><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Uncle+Van%2C+Salzburg" target="_blank" rel="noopener">📍 Uncle Van</a></div><div class="stars">Asian reset</div><p>如果胃开始累，直接安排亚洲餐。截图里 Akakiko 的鸭肉拉面、Uncle Van 的越南河粉都可留。</p><div class="badges"><span class="tag asianb">ASIAN SAVE</span></div></div></article></div></div></details><details class="food-city" data-food-city="budapest"><summary><div>🇭🇺 Budapest<div class="city-meta">鹅肝 · Lángos · Asian reset</div></div><span class="food-count"></span></summary><div class="food-city-body"><div class="food-grid"><article class="card food local" data-type="local"><label class="food-done"><input data-food-save="budapest-comme-chez-soi" type="checkbox"/> <span class="done-label">STRIKE OFF · 吃过了</span></label><div class="food-content"><div class="fcity">🇭🇺 BUDAPEST</div><h3>Comme Chez Soi</h3><div class="food-meta"><a class="google-rating" href="https://www.google.com/maps/search/?api=1&query=Comme+Chez+Soi%2C+Budapest" target="_blank" rel="noopener">⭐ Google 4.7</a><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Comme+Chez+Soi%2C+Budapest" target="_blank" rel="noopener">📍 Google Maps</a></div><div class="stars">★★★★★</div><p>鹅肝重点候选；很难约。约不到就别执着，Café Kör / Kiskakukk 也保留。</p><div class="badges"><span class="tag must">BOOK EARLY</span></div></div></article><article class="card food local" data-type="local"><label class="food-done"><input data-food-save="budapest-kiskakukk-caf-k-r" type="checkbox"/> <span class="done-label">STRIKE OFF · 吃过了</span></label><div class="food-content"><div class="fcity">🇭🇺 BUDAPEST</div><h3>Kiskakukk / Café Kör</h3><div class="food-meta"><a class="google-rating" href="https://www.google.com/maps/search/?api=1&query=Kiskakukk+%C3%89tterem%2C+Budapest" target="_blank" rel="noopener">⭐ 4.3</a><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Kiskakukk+%C3%89tterem%2C+Budapest" target="_blank" rel="noopener">📍 Kiskakukk Étterem</a><a class="google-rating" href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9+K%C3%B6r%2C+Budapest" target="_blank" rel="noopener">⭐ 4.6</a><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9+K%C3%B6r%2C+Budapest" target="_blank" rel="noopener">📍 Café Kör</a></div><div class="stars">★★★★½</div><p>鹅肝、牛肉汤等传统菜。Kiskakukk 是百年老店；Café Kör 可做主店约不到时的替代。</p></div></article><article class="card food local" data-type="local"><label class="food-done"><input data-food-save="budapest-paprika-vend-gl-vakvarj" type="checkbox"/> <span class="done-label">STRIKE OFF · 吃过了</span></label><div class="food-content"><div class="fcity">🇭🇺 BUDAPEST</div><h3>Paprika Vendéglő / VakVarjú</h3><div class="food-meta"><a class="google-rating" href="https://www.google.com/maps/search/?api=1&query=Paprika+Vend%C3%A9gl%C5%91%2C+Budapest" target="_blank" rel="noopener">⭐ 4.6</a><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Paprika+Vend%C3%A9gl%C5%91%2C+Budapest" target="_blank" rel="noopener">📍 Paprika Vendéglő</a><a class="google-rating" href="https://www.google.com/maps/search/?api=1&query=VakVarj%C3%BA+Restaurant%2C+Budapest" target="_blank" rel="noopener">⭐ 4.5</a><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=VakVarj%C3%BA+Restaurant%2C+Budapest" target="_blank" rel="noopener">📍 VakVarjú Restaurant</a></div><div class="stars">★★★★</div><p>Paprika：鹅肝饭；VakVarjú：鸭肝、烤鸭腿、炸猪排。两家不用都吃。</p></div></article><article class="card food local" data-type="local"><label class="food-done"><input data-food-save="budapest-l-ngos-chimney-cake" type="checkbox"/> <span class="done-label">STRIKE OFF · 吃过了</span></label><div class="food-content"><div class="fcity">🇭🇺 BUDAPEST</div><h3>Lángos + Chimney Cake</h3><div class="food-meta"><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=best+Langos+Budapest%2C+Budapest" target="_blank" rel="noopener">📍 Google Maps · 附近选择</a></div><div class="stars">Street food</div><p>Lángos 要吃一次；烟囱卷偏甜，和咖啡/冰淇淋中和即可。</p></div></article><article class="card food asian" data-type="asian"><label class="food-done"><input data-food-save="budapest-pho-saigon" type="checkbox"/> <span class="done-label">STRIKE OFF · 吃过了</span></label><div class="food-content"><div class="fcity">🇭🇺 BUDAPEST</div><h3>Pho Saigon</h3><div class="food-meta"><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Pho+Saigon%2C+Budapest" target="_blank" rel="noopener">📍 Google Maps · 看实时评分</a></div><div class="stars">Highlighted by your screenshots</div><p>越南菜、Pho、烤肉米线。正式放进 Day 10 lunch 作为亚洲胃 reset。</p><div class="badges"><span class="tag asianb">ASIAN SAVE</span></div></div></article><article class="card food asian" data-type="asian"><label class="food-done"><input data-food-save="budapest-gangsikdang" type="checkbox"/> <span class="done-label">STRIKE OFF · 吃过了</span></label><div class="food-content"><div class="fcity">🇭🇺 BUDAPEST</div><h3>gangsikdang</h3><div class="food-meta"><a class="google-rating" href="https://www.google.com/maps/search/?api=1&query=gangsikdang%2C+Budapest" target="_blank" rel="noopener">⭐ Google 4.9</a><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=gangsikdang%2C+Budapest" target="_blank" rel="noopener">📍 Google Maps</a></div><div class="stars">Korean option</div><p>韩式烤肉 / 石锅拌饭；若真的想暂时离开中欧口味，可替换任何一顿。</p><div class="badges"><span class="tag asianb">ASIAN SAVE</span></div></div></article><article class="card food cafe" data-type="cafe"><label class="food-done"><input data-food-save="budapest-artiz-n-cirkusz-caf" type="checkbox"/> <span class="done-label">STRIKE OFF · 吃过了</span></label><div class="food-content"><div class="fcity">🇭🇺 BUDAPEST</div><h3>Artizán / Cirkusz Café</h3><div class="food-meta"><a class="google-rating" href="https://www.google.com/maps/search/?api=1&query=Artiz%C3%A1n+Bakery%2C+Budapest" target="_blank" rel="noopener">⭐ 4.8</a><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Artiz%C3%A1n+Bakery%2C+Budapest" target="_blank" rel="noopener">📍 Artizán Bakery</a><a class="google-rating" href="https://www.google.com/maps/search/?api=1&query=Cirkusz+Caf%C3%A9%2C+Budapest" target="_blank" rel="noopener">⭐ 4.7</a><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Cirkusz+Caf%C3%A9%2C+Budapest" target="_blank" rel="noopener">📍 Cirkusz Café</a></div><div class="stars">Brunch</div><p>早餐/烘焙保留，适合不想一早吃重肉的时候。</p><div class="badges"><span class="tag cafeb">BRUNCH</span></div></div></article></div></div></details><details class="food-city" data-food-city="prague"><summary><div>🇨🇿 Prague<div class="city-meta">跟团期间轻松选 · Asian reset</div></div><span class="food-count"></span></summary><div class="food-city-body"><div class="food-grid"><article class="card food local" data-type="local"><label class="food-done"><input data-food-save="prague-eska" type="checkbox"/> <span class="done-label">STRIKE OFF · 吃过了</span></label><div class="food-content"><div class="fcity">🇨🇿 PRAGUE</div><h3>Eska</h3><div class="food-meta"><a class="google-rating" href="https://www.google.com/maps/search/?api=1&query=Eska%2C+Prague" target="_blank" rel="noopener">⭐ Google 4.5</a><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Eska%2C+Prague" target="_blank" rel="noopener">📍 Google Maps</a></div><div class="stars">★★★★</div><p>potatoes in ash / flank steak 是你截图明确觉得有趣的现代捷克选择。</p></div></article><article class="card food local" data-type="local"><label class="food-done"><input data-food-save="prague-pork-s-ribs-of-prague" type="checkbox"/> <span class="done-label">STRIKE OFF · 吃过了</span></label><div class="food-content"><div class="fcity">🇨🇿 PRAGUE</div><h3>Pork's / Ribs of Prague</h3><div class="stars">★★★★</div><p>猪肋排 / 猪肘代表餐，选一家就够。别把 Prague 后段全部吃成猪肉。</p></div></article><article class="card food asian" data-type="asian"><label class="food-done"><input data-food-save="prague-asian-rotation" type="checkbox"/> <span class="done-label">STRIKE OFF · 吃过了</span></label><div class="food-content"><div class="fcity">🇨🇿 PRAGUE</div><h3>Asian rotation</h3><div class="food-meta"><a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Asian+restaurant+Prague%2C+Prague" target="_blank" rel="noopener">📍 Google Maps · 附近选择</a></div><div class="stars">正式保留 1–2 顿</div><p>Prague 最后 4 晚跟团 + 重菜以后，主动留越南 / ramen / Asian dinner slots。</p><div class="badges"><span class="tag asianb">ASIAN SAVE</span></div></div></article></div></div></details></div>
+</section>
+<section class="section" id="transport">
+<div class="section-title"><div><h2>Transport &amp; Apps</h2><p>跨城票提前；市内票不用过早买。App 名称按现在官方渠道整理。</p></div></div>
+<div class="trans-grid">
+<article class="card trans-card"><h3>🚆 Intercity Strategy · Final Buying Notes</h3>
+<div class="trans-row"><b>11 Nov · Prague 10:01 → Salzburg</b><p>Praha hl.n. → Linz Hbf → Salzburg Hbf。Můj vlak (ČD) 买；1st Class + reserved seat。</p><span class="app-pill">MŮJ VLAK</span></div>
+<div class="trans-row"><b>14 Nov · Salzburg ~09:07 → Vienna</b><p>Salzburg Hbf → Wien Hbf。ÖBB App；direct RJ/RJX，1st Class。</p><span class="app-pill">ÖBB</span></div>
+<div class="trans-row"><b>17 Nov · Vienna 10:27 → Budapest</b><p>Wien Hbf → Budapest。RegioJet App；优先 Relax Coach 2+1。</p><span class="app-pill">REGIOJET</span></div>
+<div class="trans-row"><b>20 Nov · Budapest 07:45/07:58 → Prague ~14:56</b><p>Déli / Kelenföld → Praha hl.n.。RegioJet App；Relax Coach + reserved seat。</p><span class="app-pill">REGIOJET</span></div></article>
+<article class="card trans-card"><h3>📱 Local Apps / Tips</h3>
+<div class="trans-row"><b>Vienna · WienMobil Ticketshop</b><p>Wiener Linien 官方数字售票渠道之一；市内票可在 App 购买。</p><span class="app-pill">WIENMOBIL</span></div>
+<div class="trans-row"><b>Vienna · Stadt Wien-App → Cooles Wien</b><p>可在地图找饮水点；官方页面写约 1,800 个饮水喷泉。</p><span class="app-pill">DRINKING WATER</span></div>
+<div class="trans-row"><b>Salzburg · ÖBB / local transport</b><p>你截图提到 SimplyGo；实际出发前用 ÖBB App / 当地交通方式重新确认票制。</p></div>
+<div class="trans-row"><b>Prague · 后段跟团</b><p>不要先买昂贵 tourist pass；看自由活动时数再决定。</p></div>
+</article>
+</div>
+</section>
+<section class="section" id="weather">
+<div class="section-title"><div><h2>Weather &amp; Outfit</h2><p>这是 11 月中欧的计划型范围，不是天气预报；出发前 7–10 天再换成真实 forecast。</p></div></div>
+<div class="weather-grid">
+<article class="card weather"><table><thead><tr><th>City</th><th>Plan around</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Prague</td><td>~3–9°C</td><td>风 + 石板路</td></tr><tr><td>Salzburg</td><td>~1–8°C</td><td>更湿冷，山区更冷</td></tr><tr><td>Vienna</td><td>~3–9°C</td><td>城市风明显</td></tr><tr><td>Budapest</td><td>~4–10°C</td><td>Danube 夜晚体感低</td></tr>
+</tbody></table><div class="source">实际天气：出发前再更新，不把旧平均值当 forecast。</div></article>
+<article class="card outfit"><h3>你和妈妈的穿搭原则</h3><ul><li>羊毛/保暖大衣 + 可拆层次，比一件超厚更灵活。</li><li>围巾、手套、薄帽子；Danube night cruise 必带。</li><li>防滑、好走的平底鞋是 priority，石板路比低温更容易累。</li><li>轻便小伞 / 防水外层，Salzburg 更需要。</li><li>室内暖气足，不要把每层都穿得太难脱。</li></ul></article>
+</div>
+</section>
+<section class="section" id="packing">
+<div class="section-title"><div><h2>Packing List</h2><p>勾选状态会保存。旅行前直接拿这一页收行李。</p></div></div>
+<div class="pack-grid">
+<article class="card pack"><h3>🧥 冬季衣物</h3>
+<label class="check"><input data-save="coat" type="checkbox"/><div class="ct"><b>大衣 / 防风外套</b></div></label><label class="check"><input data-save="thermal" type="checkbox"/><div class="ct"><b>保暖内搭 2–3 套</b></div></label><label class="check"><input data-save="scarf" type="checkbox"/><div class="ct"><b>围巾 + 手套 + 帽子</b></div></label><label class="check"><input data-save="shoes" type="checkbox"/><div class="ct"><b>好走防滑鞋</b></div></label>
+</article>
+<article class="card pack"><h3>✈️ 文件 / 交通</h3>
+<label class="check"><input data-save="passport" type="checkbox"/><div class="ct"><b>护照 + 保险</b></div></label><label class="check"><input data-save="flightpdf" type="checkbox"/><div class="ct"><b>你 + 妈妈机票离线保存</b></div></label><label class="check"><input data-save="railpdf" type="checkbox"/><div class="ct"><b>所有火车电子票截图</b></div></label><label class="check"><input data-save="esim" type="checkbox"/><div class="ct"><b>eSIM / roaming</b></div></label>
+</article>
+<article class="card pack"><h3>👜 日常好用</h3>
+<label class="check"><input data-save="powerbank" type="checkbox"/><div class="ct"><b>Power bank</b></div></label><label class="check"><input data-save="bottle" type="checkbox"/><div class="ct"><b>轻便水瓶</b></div></label><label class="check"><input data-save="umbrella" type="checkbox"/><div class="ct"><b>折叠伞</b></div></label><label class="check"><input data-save="cash" type="checkbox"/><div class="ct"><b>少量 EUR + HUF + CZK 现金</b></div></label>
+</article>
+</div>
+</section>
+<section class="section" id="stay">
+<div class="section-title"><div><h2>Stay Strategy</h2><p>不追最核心最贵地址；优先拖行李舒服、回酒店简单。</p></div></div>
+<div class="stay-grid">
+<article class="card stay"><div class="flag">🇨🇿</div><h3>Prague · 10 Nov</h3><div class="night">1 NIGHT</div><p>Transit night。以第二天去火车站方便为主，不为“住老城”多花钱。</p></article>
+<article class="card stay"><div class="flag">🇦🇹</div><h3>Salzburg · 11–14</h3><div class="night">3 NIGHTS</div><p>Old Town edge / river / station easy access。三晚是为了天气 buffer。</p></article>
+<article class="card stay"><div class="flag">🇦🇹</div><h3>Vienna · 14–17</h3><div class="night">3 NIGHTS</div><p>Vienna 贵：不强求住 1st district。U-Bahn 好 + 回酒店简单更重要。</p></article>
+<article class="card stay"><div class="flag">🇭🇺</div><h3>Budapest · 17–20</h3><div class="night">3 NIGHTS</div><p>Pest side central，方便吃饭、河岸、夜游船后回酒店。</p></article>
+<article class="card stay"><div class="flag">🇨🇿</div><h3>Prague · 20–24</h3><div class="night">4 NIGHTS</div><p>妈妈有团，集合与 tour logistics 优先，不再为了我自己的 citywalk 换区。</p></article>
+</div>
+</section>
+<section class="section" id="notes">
+<div class="section-title"><div><h2>Important Notes</h2><p>这部分是防止“到了才发现关门 / 没票 / 走太累”。</p></div></div>
+<div class="notes-grid">
+<article class="card note-card"><h3>🇦🇹 Sunday &amp; Retail</h3><p>15 Nov 是 Sunday。奥地利一般商店、百货及大部分零售周日关门，所以购物已经放 14 Nov Saturday / 16 Nov Monday。车站、机场等有例外。</p></article>
+<article class="card note-card"><h3>🏰 Schönbrunn 15 Nov</h3><ul><li>Palace：08:30–17:00。</li><li>Park：06:30–17:30。</li><li>最后入场会早于关门。</li><li>Christmas market：10:00–21:00。</li></ul></article>
+<article class="card note-card"><h3>⛪ Vienna Towers</h3><p>你提醒：Stephansdom 南塔需要走楼梯；北塔有电梯。妈妈体力优先时，不把南塔当 must-do。</p></article>
+<article class="card note-card"><h3>🛁 Budapest Thermal Bath</h3><p>你对温泉“还好”，所以不是必去。只有天气很冷、你们当天想休息时才临时加，不提前占半天。</p></article>
+<article class="card note-card"><h3>🎨 Museum Preference</h3><p>你明确更喜欢艺术馆，不爱一般博物馆。因此 Vienna / Prague 的自由空档优先 art museum，不会为了“著名”硬塞历史馆。</p></article>
+<article class="card note-card"><h3>🍜 Food Rhythm</h3><p>连续两顿 Schnitzel / pork / goose liver 以后，下一顿主动给 soup / noodles / Vietnamese / Korean。这样你才会真的觉得欧洲食物好吃，而不是后半程吃到怕。</p></article>
+<article class="card note-card"><h3>🌇 Winter Daylight</h3><p>11 月天黑早：Salzburg Fortress、Prague 拍照、Budapest night cruise 都按照 golden hour / blue hour 排，不用夏季节奏。</p></article>
+<article class="card note-card"><h3>🛍 Tax Free</h3><p>买高价商品时保留单据、tax-free forms。24 Nov 你和妈妈不同 terminal，去机场要把退税时间一起算进去。</p></article>
+</div>
+<div class="source">Verified planning notes (Sep 2026): Vienna markets &amp; Schönbrunn via official Vienna/Schönbrunn sources; Salzburg Christmas market via Salzburg Tourism; Prague market dates via Prague City Tourism; Wiener Linien digital tickets via official WienMobil terms.</div>
+</section>
+</main>
+<nav class="bottomnav">
+<a href="#overview"><span>✦</span>首页</a><a href="#itinerary"><span>🗓</span>行程</a><a href="#booking"><span>🎟</span>预订</a><a href="#food"><span>🍜</span>美食</a><a href="#notes"><span>⚠</span>提醒</a>
+</nav>
+<script>
+(function(){
+  'use strict';
+  const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+  function updateClock(){
+    const now=new Date();
+    const cet=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Prague',hour:'2-digit',minute:'2-digit',hour12:false}).format(now);
+    const my=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Kuala_Lumpur',hour:'2-digit',minute:'2-digit',hour12:false}).format(now);
+    const c=$('#cetClock'),m=$('#myClock'); if(c)c.textContent=cet; if(m)m.textContent=my;
+  }
+  function updateCountdown(){
+    const target=new Date('2026-11-10T03:15:00+08:00'), now=new Date(), diff=target-now, el=$('#countdown');
+    if(!el)return; if(diff<=0){el.textContent='Trip time ✦';return;} el.textContent=Math.floor(diff/86400000)+' days';
+  }
+  updateClock();updateCountdown();setInterval(updateClock,30000);setInterval(updateCountdown,3600000);
+
+  const KEY='centralEurope2026V4'; let saved={};
+  try{saved=JSON.parse(localStorage.getItem(KEY)||localStorage.getItem('centralEurope2026V3')||'{}')}catch(e){saved={}}
+  const persist=()=>{try{localStorage.setItem(KEY,JSON.stringify(saved))}catch(e){}};
+
+  $$('input[data-save]').forEach(cb=>{
+    const id=cb.dataset.save; cb.checked=!!saved[id]; const row=cb.closest('.check'); if(row)row.classList.toggle('saved',cb.checked);
+    cb.addEventListener('change',()=>{saved[id]=cb.checked;persist();if(row)row.classList.toggle('saved',cb.checked);});
+  });
+  $$('input[data-food-save]').forEach(cb=>{
+    const id='food:'+cb.dataset.foodSave; cb.checked=!!saved[id]; const card=cb.closest('.food'); if(card)card.classList.toggle('saved',cb.checked);
+    cb.addEventListener('change',()=>{saved[id]=cb.checked;persist();if(card)card.classList.toggle('saved',cb.checked);updateFoodCounts();});
+  });
+
+  function updateFoodCounts(){
+    $$('.food-city').forEach(group=>{
+      const cards=$$('.food',group), done=cards.filter(c=>c.classList.contains('saved')).length, target=$('.food-count',group);
+      if(target)target.textContent=done+'/'+cards.length+' ✓';
+    });
+  }
+  updateFoodCounts();
+
+  const buttons=$$('#foodFilter button'), foods=$$('#foodGrid [data-type]');
+  buttons.forEach(btn=>btn.addEventListener('click',()=>{
+    buttons.forEach(b=>b.classList.remove('active')); btn.classList.add('active'); const f=btn.dataset.filter;
+    foods.forEach(card=>{card.hidden=!(f==='all'||card.dataset.type===f)});
+    $$('.food-city').forEach(group=>{const visible=$$('.food',group).some(c=>!c.hidden);group.hidden=!visible;});
+  }));
+})();
+</script>
+</body>
+</html>
